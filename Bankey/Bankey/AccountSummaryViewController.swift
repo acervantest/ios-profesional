@@ -9,11 +9,7 @@ import UIKit
 
 class AccountSummaryViewController: UIViewController {
     
-    let games = [
-        "Pacman",
-        "Space Invaders",
-        "Space Patrol",
-    ]
+    let games = [ "Pacman", "Space Invaders", "Space Patrol" ]
     
     var tableView = UITableView()
     
@@ -24,8 +20,10 @@ class AccountSummaryViewController: UIViewController {
 }
 
 extension AccountSummaryViewController {
+    
     private func setup() {
         setupTableView()
+        setupTableHeaderView()
     }
     
     private func setupTableView() {
@@ -33,6 +31,7 @@ extension AccountSummaryViewController {
         tableView.dataSource = self
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -41,6 +40,18 @@ extension AccountSummaryViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    func setupTableHeaderView() {
+        let header = AccountSummaryHeaderView(frame: .zero)
+        
+        var size =  header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        size.width = UIScreen.main.bounds.width
+        
+        header.frame.size = size
+        
+        tableView.tableHeaderView = header
     }
 }
 
