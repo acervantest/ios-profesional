@@ -16,12 +16,6 @@ class OnboardingViewController: UIViewController {
     var imageName: String?
     var labelText: String?
     
-    /*override func viewDidLoad() {
-        super.viewDidLoad()
-        style()
-        layout()
-    }*/
-    
     init(withImage imageName: String, withText labelText: String) {
         self.imageName = imageName
         self.labelText = labelText

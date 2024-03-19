@@ -7,6 +7,14 @@
 
 import UIKit
 
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
+
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+
 class LoginViewController: UIViewController {
     
     let titleLabel = UILabel()
@@ -14,6 +22,8 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     let signInButton = UIButton()
     let errorMessageLabel = UILabel()
+    
+    weak var delegate: LoginViewControllerDelegate?
 
     var username: String? {
         return loginView.usernameTextField.text
@@ -28,6 +38,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        signInButton.configuration?.showsActivityIndicator = false
     }
 }
 
@@ -60,7 +75,6 @@ extension LoginViewController {
         errorMessageLabel.textColor = .red
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.isHidden = true
-
     }
     
     private func layout() {
@@ -91,12 +105,6 @@ extension LoginViewController {
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
         ])
         
-        /*NSLayoutConstraint.activate([
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
-        ])*/
-        
         // Button
         NSLayoutConstraint.activate([
             signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
@@ -115,6 +123,7 @@ extension LoginViewController {
 
 // MARK: - Actions
 extension LoginViewController {
+    
     @objc func signInTapped(sender: UIButton) {
         errorMessageLabel.isHidden = true
         login()
@@ -131,8 +140,9 @@ extension LoginViewController {
             return
         }
         
-        if username == "alejandro" && password == "cervantes" {
+        if username == "Act" && password == "act" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin()
         } else {
             configureView(withMessage: "Incorrect Username / Password")
         }

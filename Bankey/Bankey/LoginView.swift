@@ -5,7 +5,6 @@
 //  Created by Alejandro Cervantes on 2024-03-03.
 //
 
-import Foundation
 import UIKit
 
 class LoginView: UIView {
@@ -31,7 +30,7 @@ extension LoginView {
     
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .lightGray
+        backgroundColor = .secondarySystemBackground
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -61,20 +60,6 @@ extension LoginView {
         stack.addArrangedSubview(passwordTextField)
         
         addSubview(stack)
-        
-        /*NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: topAnchor),
-            stack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stack.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])*/
-        
-        /*NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
-        ])*/
         
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
