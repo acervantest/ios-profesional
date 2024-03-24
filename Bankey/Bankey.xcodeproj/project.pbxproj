@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD42ED492BAFCAC100ACD83D /* DecimalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42ED482BAFCAC100ACD83D /* DecimalUtil.swift */; };
+		BD42ED4B2BAFCB6E00ACD83D /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42ED4A2BAFCB6E00ACD83D /* CurrencyFormatter.swift */; };
 		BD49DCA22B9594B40051F421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49DCA12B9594B40051F421 /* AppDelegate.swift */; };
 		BD49DCA62B9594B40051F421 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49DCA52B9594B40051F421 /* LoginViewController.swift */; };
 		BD49DCAB2B9594B50051F421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD49DCAA2B9594B50051F421 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD42ED482BAFCAC100ACD83D /* DecimalUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtil.swift; sourceTree = "<group>"; };
+		BD42ED4A2BAFCB6E00ACD83D /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		BD49DC9E2B9594B40051F421 /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD49DCA12B9594B40051F421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD49DCA52B9594B40051F421 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 			children = (
 				BDC00E152BA3487B002A500E /* LocalState.swift */,
 				BDC00E172BA40319002A500E /* UIViewController+Utils.swift */,
+				BD42ED482BAFCAC100ACD83D /* DecimalUtil.swift */,
+				BD42ED4A2BAFCB6E00ACD83D /* CurrencyFormatter.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -224,7 +230,9 @@
 				BDC00E182BA40319002A500E /* UIViewController+Utils.swift in Sources */,
 				BD49DCB92B959A7C0051F421 /* LoginView.swift in Sources */,
 				BDC00E162BA3487B002A500E /* LocalState.swift in Sources */,
+				BD42ED492BAFCAC100ACD83D /* DecimalUtil.swift in Sources */,
 				BDC00E1F2BA943FC002A500E /* AccountSummaryHeaderView.swift in Sources */,
+				BD42ED4B2BAFCB6E00ACD83D /* CurrencyFormatter.swift in Sources */,
 				BDC00E132BA33EBC002A500E /* DummyViewController.swift in Sources */,
 				BD49DCA62B9594B40051F421 /* LoginViewController.swift in Sources */,
 				BDAFABD02BAAA7D500CE2EF2 /* AccountSummaryCell.swift in Sources */,
