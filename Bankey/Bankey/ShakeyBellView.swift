@@ -10,7 +10,9 @@ import UIKit
 
 class ShakeyBellView: UIView {
     
-    let imageView = UIImageView()
+    let bellImage = UIImageView()
+    let badge = UIButton()
+    let buttonHeight: CGFloat = 16
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,26 +33,47 @@ class ShakeyBellView: UIView {
 extension ShakeyBellView {
     func setup() {
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(_: )))
-        imageView.addGestureRecognizer(singleTap)
-        imageView.isUserInteractionEnabled = true
+        bellImage.addGestureRecognizer(singleTap)
+        bellImage.isUserInteractionEnabled = true
     }
     
     func style() {
+        
         translatesAutoresizingMaskIntoConstraints = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        bellImage.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(systemName: "bell.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal)
-        imageView.image = image
+        bellImage.image = image
+        
+        badge.translatesAutoresizingMaskIntoConstraints = false
+        badge.backgroundColor = .systemRed
+        badge.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        badge.layer.cornerRadius = buttonHeight/2
+        badge.setTitle("9", for: .normal)
+        badge.setTitleColor(.white, for: .normal)
     }
     
     func layout() {
-        addSubview(imageView)
         
+        addSubview(bellImage)
+        addSubview(badge)
+        
+        // IMAGE VIEW
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 24),
-            imageView.widthAnchor.constraint(equalToConstant: 24)
+            bellImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bellImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            bellImage.heightAnchor.constraint(equalToConstant: 24),
+            bellImage.widthAnchor.constraint(equalToConstant: 24)
         ])
+        
+        // BUTTON
+        NSLayoutConstraint.activate([
+            badge.topAnchor.constraint(equalTo: bellImage.topAnchor),
+            badge.leadingAnchor.constraint(equalTo: bellImage.trailingAnchor, constant: -9),
+            badge.widthAnchor.constraint(equalToConstant: 16),
+            badge.heightAnchor.constraint(equalToConstant: 16)
+        ])
+        
     }
 }
 
@@ -64,27 +87,27 @@ extension ShakeyBellView {
         let numberOfFrames: Double = 6
         let frameDuration = Double(1/numberOfFrames)
         
-        imageView.setAnchorPoint(CGPoint(x: 0.5, y: yOffset))
+        bellImage.setAnchorPoint(CGPoint(x: 0.5, y: yOffset))
 
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: frameDuration) {
-                self.imageView.transform = CGAffineTransform(rotationAngle: -angle)
+                self.bellImage.transform = CGAffineTransform(rotationAngle: -angle)
             }
             UIView.addKeyframe(withRelativeStartTime: frameDuration, relativeDuration: frameDuration) {
-                self.imageView.transform = CGAffineTransform(rotationAngle: +angle)
+                self.bellImage.transform = CGAffineTransform(rotationAngle: +angle)
             }
             UIView.addKeyframe(withRelativeStartTime: frameDuration*2, relativeDuration: frameDuration) {
-                self.imageView.transform = CGAffineTransform(rotationAngle: -angle)
+                self.bellImage.transform = CGAffineTransform(rotationAngle: -angle)
             }
             UIView.addKeyframe(withRelativeStartTime: frameDuration*3, relativeDuration: frameDuration) {
-                self.imageView.transform = CGAffineTransform(rotationAngle: +angle)
+                self.bellImage.transform = CGAffineTransform(rotationAngle: +angle)
             }
             UIView.addKeyframe(withRelativeStartTime: frameDuration*4, relativeDuration: frameDuration) {
-                self.imageView.transform = CGAffineTransform(rotationAngle: -angle)
+                self.bellImage.transform = CGAffineTransform(rotationAngle: -angle)
             }
             UIView.addKeyframe(withRelativeStartTime: frameDuration*5, relativeDuration: frameDuration) {
-                self.imageView.transform = CGAffineTransform.identity
+                self.bellImage.transform = CGAffineTransform.identity
             }
           },
           completion: nil
