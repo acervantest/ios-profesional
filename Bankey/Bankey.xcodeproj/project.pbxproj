@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD3AC22F2BBA79C200C81D88 /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AC22E2BBA79C200C81D88 /* ShakeyBellView.swift */; };
+		BD3AC2312BBE77F700C81D88 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AC2302BBE77F700C81D88 /* Date+Utils.swift */; };
+		BD3AC2332BBE790600C81D88 /* AccountSummaryViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AC2322BBE790600C81D88 /* AccountSummaryViewController+Networking.swift */; };
 		BD42ED492BAFCAC100ACD83D /* DecimalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42ED482BAFCAC100ACD83D /* DecimalUtil.swift */; };
 		BD42ED4B2BAFCB6E00ACD83D /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42ED4A2BAFCB6E00ACD83D /* CurrencyFormatter.swift */; };
 		BD42ED5A2BB28FBA00ACD83D /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42ED592BB28FBA00ACD83D /* CurrencyFormatterTests.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		BD3AC22E2BBA79C200C81D88 /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
+		BD3AC2302BBE77F700C81D88 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		BD3AC2322BBE790600C81D88 /* AccountSummaryViewController+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSummaryViewController+Networking.swift"; sourceTree = "<group>"; };
 		BD42ED482BAFCAC100ACD83D /* DecimalUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtil.swift; sourceTree = "<group>"; };
 		BD42ED4A2BAFCB6E00ACD83D /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		BD42ED502BB28EE500ACD83D /* BankeyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,9 +126,9 @@
 		BD49DCA02B9594B40051F421 /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
-				BD3AC22D2BBA798000C81D88 /* Components */,
 				BD49DCA12B9594B40051F421 /* AppDelegate.swift */,
 				BDC00E192BA40510002A500E /* MainViewController.swift */,
+				BD3AC22D2BBA798000C81D88 /* Components */,
 				BD49DCB62B9599720051F421 /* Login */,
 				BD49DCBA2B9843FB0051F421 /* Onboarding */,
 				BDC00E1B2BA93438002A500E /* AccountSummary */,
@@ -189,6 +193,7 @@
 				BD42ED4A2BAFCB6E00ACD83D /* CurrencyFormatter.swift */,
 				BD42ED5B2BB3965B00ACD83D /* NSNotificationName.swift */,
 				BD42ED5D2BB3B02F00ACD83D /* UITextField+SecureToggle.swift */,
+				BD3AC2302BBE77F700C81D88 /* Date+Utils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				BDC00E1C2BA9349A002A500E /* AccountSummaryViewController.swift */,
+				BD3AC2322BBE790600C81D88 /* AccountSummaryViewController+Networking.swift */,
 				BDAFABCD2BAAA73900CE2EF2 /* Header */,
 				BDAFABCE2BAAA76500CE2EF2 /* Cell */,
 			);
@@ -313,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDC00E182BA40319002A500E /* UIViewController+Utils.swift in Sources */,
+				BD3AC2312BBE77F700C81D88 /* Date+Utils.swift in Sources */,
 				BD49DCB92B959A7C0051F421 /* LoginView.swift in Sources */,
 				BDC00E162BA3487B002A500E /* LocalState.swift in Sources */,
 				BD42ED492BAFCAC100ACD83D /* DecimalUtil.swift in Sources */,
@@ -329,6 +336,7 @@
 				BDC00E1D2BA9349A002A500E /* AccountSummaryViewController.swift in Sources */,
 				BD49DCA22B9594B40051F421 /* AppDelegate.swift in Sources */,
 				BD49DCBC2B9844370051F421 /* OnboardingContainerViewController.swift in Sources */,
+				BD3AC2332BBE790600C81D88 /* AccountSummaryViewController+Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
