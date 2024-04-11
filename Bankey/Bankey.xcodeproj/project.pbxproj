@@ -25,6 +25,8 @@
 		BD5F09722BC206DF00B1F573 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F09712BC206DF00B1F573 /* AccountTests.swift */; };
 		BD5F09742BC3A53900B1F573 /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F09732BC3A53900B1F573 /* SkeletonLoadable.swift */; };
 		BD5F09762BC3A5D800B1F573 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F09752BC3A5D800B1F573 /* SkeletonCell.swift */; };
+		BD5F09792BC65A5200B1F573 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F09782BC65A5200B1F573 /* ProfileManager.swift */; };
+		BD5F097B2BC65D0F00B1F573 /* AccountSummaryViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F097A2BC65D0F00B1F573 /* AccountSummaryViewControllerTest.swift */; };
 		BDAFABD02BAAA7D500CE2EF2 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAFABCF2BAAA7D500CE2EF2 /* AccountSummaryCell.swift */; };
 		BDC00E112B9D481B002A500E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC00E102B9D481B002A500E /* OnboardingViewController.swift */; };
 		BDC00E132BA33EBC002A500E /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC00E122BA33EBC002A500E /* DummyViewController.swift */; };
@@ -68,6 +70,8 @@
 		BD5F09712BC206DF00B1F573 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		BD5F09732BC3A53900B1F573 /* SkeletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoadable.swift; sourceTree = "<group>"; };
 		BD5F09752BC3A5D800B1F573 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
+		BD5F09782BC65A5200B1F573 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		BD5F097A2BC65D0F00B1F573 /* AccountSummaryViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewControllerTest.swift; sourceTree = "<group>"; };
 		BDAFABCF2BAAA7D500CE2EF2 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		BDC00E102B9D481B002A500E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BDC00E122BA33EBC002A500E /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
@@ -189,8 +193,17 @@
 			children = (
 				BD5F096F2BC2064A00B1F573 /* ProfileTests.swift */,
 				BD5F09712BC206DF00B1F573 /* AccountTests.swift */,
+				BD5F097A2BC65D0F00B1F573 /* AccountSummaryViewControllerTest.swift */,
 			);
 			path = AccountSummary;
+			sourceTree = "<group>";
+		};
+		BD5F09772BC65A2300B1F573 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BD5F09782BC65A5200B1F573 /* ProfileManager.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		BDAFABCD2BAAA73900CE2EF2 /* Header */ = {
@@ -233,6 +246,7 @@
 				BD3AC2322BBE790600C81D88 /* AccountSummaryViewController+Networking.swift */,
 				BDAFABCD2BAAA73900CE2EF2 /* Header */,
 				BDAFABCE2BAAA76500CE2EF2 /* Cell */,
+				BD5F09772BC65A2300B1F573 /* Networking */,
 			);
 			name = AccountSummary;
 			sourceTree = "<group>";
@@ -341,6 +355,7 @@
 				BD42ED5A2BB28FBA00ACD83D /* CurrencyFormatterTests.swift in Sources */,
 				BD5F09722BC206DF00B1F573 /* AccountTests.swift in Sources */,
 				BD5F09702BC2064A00B1F573 /* ProfileTests.swift in Sources */,
+				BD5F097B2BC65D0F00B1F573 /* AccountSummaryViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +366,7 @@
 				BDC00E182BA40319002A500E /* UIViewController+Utils.swift in Sources */,
 				BD5F09762BC3A5D800B1F573 /* SkeletonCell.swift in Sources */,
 				BD3AC2312BBE77F700C81D88 /* Date+Utils.swift in Sources */,
+				BD5F09792BC65A5200B1F573 /* ProfileManager.swift in Sources */,
 				BD49DCB92B959A7C0051F421 /* LoginView.swift in Sources */,
 				BDC00E162BA3487B002A500E /* LocalState.swift in Sources */,
 				BD42ED492BAFCAC100ACD83D /* DecimalUtil.swift in Sources */,

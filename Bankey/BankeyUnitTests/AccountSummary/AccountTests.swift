@@ -35,11 +35,6 @@ class AccountTests: XCTestCase {
            },
           ]
         """
-        let id: String
-        let type: AccountType
-        let name: String
-        let amount: Decimal
-        let createdDateTime: Date
         
         let data = json.data(using: .utf8)!
         let decoder = JSONDecoder()
