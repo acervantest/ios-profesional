@@ -14,6 +14,7 @@ class PasswordTextField: UIView {
     let placeHolderText: String
     let eyeButton = UIButton(type: .custom)
     let divider = UIView()
+    let errorMessage = UILabel()
     
     init (placeholderText: String){
         self.placeHolderText = placeholderText
@@ -37,7 +38,6 @@ extension PasswordTextField {
     
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemOrange
         
         lockImage.translatesAutoresizingMaskIntoConstraints = false
         
@@ -56,6 +56,16 @@ extension PasswordTextField {
         
         divider.translatesAutoresizingMaskIntoConstraints = false
         divider.backgroundColor = .separator
+        
+        errorMessage.translatesAutoresizingMaskIntoConstraints = false
+        errorMessage.font = .preferredFont(forTextStyle: .footnote)
+        errorMessage.textColor = .systemRed
+        errorMessage.text = "Your password must meet the requirements below."
+        errorMessage.numberOfLines = 0
+        errorMessage.lineBreakMode = .byWordWrapping
+        errorMessage.isHidden = false
+        // errorMessage.adjustsFontSizeToFitWidth = true
+        // errorMessage.minimumScaleFactor = 0.8
     }
     
     func layout() {
@@ -64,6 +74,7 @@ extension PasswordTextField {
         addSubview(textField)
         addSubview(eyeButton)
         addSubview(divider)
+        addSubview(errorMessage)
         
         // Lock
         NSLayoutConstraint.activate([
@@ -90,6 +101,13 @@ extension PasswordTextField {
             divider.topAnchor.constraint(equalToSystemSpacingBelow: textField.bottomAnchor, multiplier: 1),
             divider.leadingAnchor.constraint(equalTo: leadingAnchor),
             divider.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        // Error Label
+        NSLayoutConstraint.activate([
+            errorMessage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorMessage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            errorMessage.topAnchor.constraint(equalTo: divider.bottomAnchor, constant: 4)
         ])
         
         // CHCR
