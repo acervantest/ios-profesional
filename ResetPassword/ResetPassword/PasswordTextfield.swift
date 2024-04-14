@@ -12,6 +12,7 @@ class PasswordTextField: UIView {
     let lockImage = UIImageView(image: UIImage(systemName: "lock.fill"))
     let textField = UITextField()
     let placeHolderText: String
+    let eyeButton = UIButton(type: .custom)
     
     init (placeholderText: String){
         self.placeHolderText = placeholderText
@@ -47,16 +48,21 @@ extension PasswordTextField {
         textField.attributedPlaceholder = NSAttributedString(string:placeHolderText,
                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
         
+        eyeButton.translatesAutoresizingMaskIntoConstraints = false
+        eyeButton.setImage(UIImage(systemName: "eye.circle"), for: .normal)
+        eyeButton.setImage(UIImage(systemName: "eye.slash.circle"), for: .selected)
+        eyeButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
     }
     
     func layout() {
         
         addSubview(lockImage)
         addSubview(textField)
+        addSubview(eyeButton)
         
         // Lock
         NSLayoutConstraint.activate([
-            lockImage.topAnchor.constraint(equalTo: topAnchor),
+            lockImage.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             lockImage.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
         
@@ -65,5 +71,26 @@ extension PasswordTextField {
             textField.topAnchor.constraint(equalTo: topAnchor),
             textField.leadingAnchor.constraint(equalToSystemSpacingAfter: lockImage.trailingAnchor, multiplier: 1)
         ])
+        
+        // Eye
+        NSLayoutConstraint.activate([
+            eyeButton.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
+            eyeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 1),
+            eyeButton.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        // CHCR
+        lockImage.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
+        textField.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+        eyeButton.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
+    }
+}
+
+
+// MARK: - Actions
+extension PasswordTextField {
+    @objc func togglePasswordView(_ sender: Any) {
+        textField.isSecureTextEntry.toggle()
+        eyeButton.isSelected.toggle()
     }
 }
