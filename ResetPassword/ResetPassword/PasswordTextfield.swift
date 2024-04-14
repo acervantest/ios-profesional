@@ -13,6 +13,7 @@ class PasswordTextField: UIView {
     let textField = UITextField()
     let placeHolderText: String
     let eyeButton = UIButton(type: .custom)
+    let divider = UIView()
     
     init (placeholderText: String){
         self.placeHolderText = placeholderText
@@ -28,7 +29,7 @@ class PasswordTextField: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: 200, height: 50)
     }
 }
 
@@ -52,6 +53,9 @@ extension PasswordTextField {
         eyeButton.setImage(UIImage(systemName: "eye.circle"), for: .normal)
         eyeButton.setImage(UIImage(systemName: "eye.slash.circle"), for: .selected)
         eyeButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
+        
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.backgroundColor = .separator
     }
     
     func layout() {
@@ -59,6 +63,7 @@ extension PasswordTextField {
         addSubview(lockImage)
         addSubview(textField)
         addSubview(eyeButton)
+        addSubview(divider)
         
         // Lock
         NSLayoutConstraint.activate([
@@ -77,6 +82,14 @@ extension PasswordTextField {
             eyeButton.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             eyeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 1),
             eyeButton.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        // Divider
+        NSLayoutConstraint.activate([
+            divider.heightAnchor.constraint(equalToConstant: 1),
+            divider.topAnchor.constraint(equalToSystemSpacingBelow: textField.bottomAnchor, multiplier: 1),
+            divider.leadingAnchor.constraint(equalTo: leadingAnchor),
+            divider.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         
         // CHCR
