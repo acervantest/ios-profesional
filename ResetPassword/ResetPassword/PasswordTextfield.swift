@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PasswordTextFieldDelegate: AnyObject {
+    func editingDidEnd(_ sender: PasswordTextField)
+}
+
 class PasswordTextField: UIView {
     
     let lockImage = UIImageView(image: UIImage(systemName: "lock.fill"))
@@ -15,6 +19,8 @@ class PasswordTextField: UIView {
     let eyeButton = UIButton(type: .custom)
     let divider = UIView()
     let errorMessage = UILabel()
+    
+    weak var delegate: PasswordTextFieldDelegate?
     
     init (placeholderText: String) {
         
@@ -132,12 +138,13 @@ extension PasswordTextField: UITextFieldDelegate {
     
     // Loss of focus
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("foo - textFieldDidEndEditing: \(textField.text!)")
+        print("[ loss of focus - DidEndEditing ]")
+        delegate?.editingDidEnd(self)
     }
 
     // Called when 'return' key pressed. Necessary for dismissing keyboard.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("foo - textFieldShouldReturn")
+        print("[ return key pressed - ShouldReturn ]")
         textField.endEditing(true) // resign first responder
         return true
     }

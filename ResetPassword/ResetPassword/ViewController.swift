@@ -42,12 +42,14 @@ extension ViewController {
         stack.spacing = 20
         
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        newPasswordTextField.delegate = self
         
         passwordStatus.translatesAutoresizingMaskIntoConstraints = false
         passwordStatus.layer.cornerRadius = 5
         passwordStatus.clipsToBounds = true
         
         confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        confirmPasswordTextField.delegate = self
 
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         resetButton.configuration = .filled()
@@ -79,4 +81,9 @@ extension ViewController {
     }
 }
 
-
+// MARK: - text field delegate
+extension ViewController: PasswordTextFieldDelegate {
+    func editingDidEnd(_ sender: PasswordTextField) {
+        print("From controller [ \(sender.textField.text!) ]")
+    }
+}
