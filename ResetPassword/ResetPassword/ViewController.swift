@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         style()
         layout()
         view.backgroundColor = .systemBackground
@@ -24,6 +25,15 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
+    
+    func setup() {
+        setupDismissKeyboardGesture()
+    }
+    
+    private func setupDismissKeyboardGesture() {
+        let dismissKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_: )))
+        view.addGestureRecognizer(dismissKeyboardTap)
+    }
     
     func style() {
         
@@ -59,6 +69,13 @@ extension ViewController {
             stack.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: stack.trailingAnchor, multiplier: 2)
         ])
+    }
+}
+
+// MARK: - actions
+extension ViewController {
+    @objc func viewTapped(_ recognizer: UITapGestureRecognizer) {
+        view.endEditing(true) // resign first responder
     }
 }
 

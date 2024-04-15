@@ -16,7 +16,8 @@ class PasswordTextField: UIView {
     let divider = UIView()
     let errorMessage = UILabel()
     
-    init (placeholderText: String){
+    init (placeholderText: String) {
+        
         self.placeHolderText = placeholderText
         
         super.init(frame: .zero)
@@ -44,7 +45,7 @@ extension PasswordTextField {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.isSecureTextEntry = false // true
         textField.placeholder = placeHolderText
-        //textField.delegate = self
+        textField.delegate = self
         textField.keyboardType = .asciiCapable
         textField.attributedPlaceholder = NSAttributedString(string:placeHolderText,
                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
@@ -123,5 +124,21 @@ extension PasswordTextField {
     @objc func togglePasswordView(_ sender: Any) {
         textField.isSecureTextEntry.toggle()
         eyeButton.isSelected.toggle()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension PasswordTextField: UITextFieldDelegate {
+    
+    // Loss of focus
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("foo - textFieldDidEndEditing: \(textField.text!)")
+    }
+
+    // Called when 'return' key pressed. Necessary for dismissing keyboard.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("foo - textFieldShouldReturn")
+        textField.endEditing(true) // resign first responder
+        return true
     }
 }
