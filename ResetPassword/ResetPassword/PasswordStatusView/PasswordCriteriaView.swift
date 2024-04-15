@@ -5,7 +5,6 @@
 //  Created by Alejandro Cervantes on 2024-04-14.
 //
 
-import Foundation
 import UIKit
 
 class PasswordCriteriaView: UIView {

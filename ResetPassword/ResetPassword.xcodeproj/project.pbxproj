@@ -14,6 +14,7 @@
 		BD5F0A162BC8D8CF00B1F573 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BD5F0A152BC8D8CF00B1F573 /* Base */; };
 		BD5F0A1F2BC8FC1100B1F573 /* PasswordTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F0A1E2BC8FC1100B1F573 /* PasswordTextfield.swift */; };
 		BD5F0A222BCCEA6900B1F573 /* PasswordCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F0A212BCCEA6900B1F573 /* PasswordCriteriaView.swift */; };
+		BD5F0A242BCCF4F300B1F573 /* PasswordStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F0A232BCCF4F300B1F573 /* PasswordStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BD5F0A172BC8D8CF00B1F573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD5F0A1E2BC8FC1100B1F573 /* PasswordTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextfield.swift; sourceTree = "<group>"; };
 		BD5F0A212BCCEA6900B1F573 /* PasswordCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteriaView.swift; sourceTree = "<group>"; };
+		BD5F0A232BCCF4F300B1F573 /* PasswordStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				BD5F0A212BCCEA6900B1F573 /* PasswordCriteriaView.swift */,
+				BD5F0A232BCCF4F300B1F573 /* PasswordStatusView.swift */,
 			);
 			path = PasswordStatusView;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				BD5F0A0E2BC8D8CE00B1F573 /* ViewController.swift in Sources */,
 				BD5F0A0A2BC8D8CE00B1F573 /* AppDelegate.swift in Sources */,
 				BD5F0A222BCCEA6900B1F573 /* PasswordCriteriaView.swift in Sources */,
+				BD5F0A242BCCF4F300B1F573 /* PasswordStatusView.swift in Sources */,
 				BD5F0A1F2BC8FC1100B1F573 /* PasswordTextfield.swift in Sources */,
 				BD5F0A0C2BC8D8CE00B1F573 /* SceneDelegate.swift in Sources */,
 			);
