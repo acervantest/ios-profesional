@@ -31,4 +31,8 @@ struct PasswordCriteria {
     static func digitcaseMet(_ text: String) -> Bool {
         text.range(of: "[0-9]+", options: .regularExpression) != nil
     }
+    
+    static func specialcharMet(_ text: String) -> Bool {
+        text.range(of: "[@:?!()$#,./\\\\]+", options: .regularExpression) != nil
+    }
 }
