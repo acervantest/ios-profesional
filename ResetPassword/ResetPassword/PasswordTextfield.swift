@@ -18,9 +18,18 @@ class PasswordTextField: UIView {
     let placeHolderText: String
     let eyeButton = UIButton(type: .custom)
     let divider = UIView()
-    let errorMessage = UILabel()
+    let errorMessageLabel = UILabel()
     
     weak var delegate: PasswordTextFieldDelegate?
+    
+    typealias CustomValidation = (_ textValue: String?) -> (Bool, String)?
+    
+    var customValidation: CustomValidation?
+    
+    var text: String? {
+        get { return textField.text }
+        set { textField.text = newValue }
+    }
     
     init (placeholderText: String) {
         
@@ -64,13 +73,13 @@ extension PasswordTextField {
         divider.translatesAutoresizingMaskIntoConstraints = false
         divider.backgroundColor = .separator
         
-        errorMessage.translatesAutoresizingMaskIntoConstraints = false
-        errorMessage.font = .preferredFont(forTextStyle: .footnote)
-        errorMessage.textColor = .systemRed
-        errorMessage.text = "Your password must meet the requirements below."
-        errorMessage.numberOfLines = 0
-        errorMessage.lineBreakMode = .byWordWrapping
-        errorMessage.isHidden = false
+        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageLabel.font = .preferredFont(forTextStyle: .footnote)
+        errorMessageLabel.textColor = .systemRed
+        errorMessageLabel.text = "Your password must meet the requirements below."
+        errorMessageLabel.numberOfLines = 0
+        errorMessageLabel.lineBreakMode = .byWordWrapping
+        errorMessageLabel.isHidden = false
         // errorMessage.adjustsFontSizeToFitWidth = true
         // errorMessage.minimumScaleFactor = 0.8
     }
@@ -81,7 +90,7 @@ extension PasswordTextField {
         addSubview(textField)
         addSubview(eyeButton)
         addSubview(divider)
-        addSubview(errorMessage)
+        addSubview(errorMessageLabel)
         
         // Lock
         NSLayoutConstraint.activate([
@@ -112,9 +121,9 @@ extension PasswordTextField {
         
         // Error Label
         NSLayoutConstraint.activate([
-            errorMessage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            errorMessage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            errorMessage.topAnchor.constraint(equalTo: divider.bottomAnchor, constant: 4)
+            errorMessageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            errorMessageLabel.topAnchor.constraint(equalTo: divider.bottomAnchor, constant: 4)
         ])
         
         // CHCR
@@ -147,5 +156,30 @@ extension PasswordTextField: UITextFieldDelegate {
         print("[ return key pressed - ShouldReturn ]")
         textField.endEditing(true) // resign first responder
         return true
+    }
+}
+
+// MARK: - Validation
+extension PasswordTextField {
+    
+    func validate() -> Bool {
+        if let customValidation = customValidation,
+            let customValidationResult = customValidation(text),
+                customValidationResult.0 == false {
+                showError(customValidationResult.1)
+                return false
+            }
+        clearError()
+        return true
+    }
+    
+    private func showError(_ errorMessage: String) {
+        errorMessageLabel.isHidden = false
+        errorMessageLabel.text = errorMessage
+    }
+
+    private func clearError() {
+        errorMessageLabel.isHidden = true
+        errorMessageLabel.text = ""
     }
 }
