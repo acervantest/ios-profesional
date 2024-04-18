@@ -100,6 +100,13 @@ extension ViewController {
 
 // MARK: - text field delegate
 extension ViewController: PasswordTextFieldDelegate {
+    
+    func editingChanged(_ sender: PasswordTextField) {
+        if sender === newPasswordTextField {
+            passwordStatus.updateDisplay(sender.textField.text ?? "")
+        }
+    }
+    
     func editingDidEnd(_ sender: PasswordTextField) {
         if sender === newPasswordTextField {
             _ = newPasswordTextField.validate()

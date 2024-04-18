@@ -16,6 +16,9 @@ class PasswordStatusView: UIView {
     let digitCriteriaView = PasswordCriteriaView(text: "digit (0-9)")
     let specialCharacterCriteriaView = PasswordCriteriaView(text: "special character (e.g. !@#$%^)")
     
+    // Used to determine if we reset criteria back to empty state
+    private var shouldResetCriteria: Bool = true
+    
     let criteriaLabel = UILabel()
     
     override init(frame: CGRect) {
@@ -94,6 +97,15 @@ extension PasswordStatusView {
 
 // MARK: - actions
 extension PasswordStatusView {
+    
+    func updateDisplay(_ text: String) {
+        let lengthAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceMet(text)
+        
+        if shouldResetCriteria {
+            lengthAndNoSpaceMet ? lengthCriteriaView.isCriteriaMet = true : lengthCriteriaView.reset()
+        }
+    }
+    
     func reset() {
         lengthCriteriaView.reset()
         uppercaseCriteriaView.reset()
