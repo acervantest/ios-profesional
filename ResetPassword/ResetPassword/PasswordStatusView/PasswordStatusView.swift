@@ -100,9 +100,15 @@ extension PasswordStatusView {
     
     func updateDisplay(_ text: String) {
         let lengthAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceMet(text)
+        let uppercaseMet = PasswordCriteria.uppercaseMet(text)
+        let lowercaseMet = PasswordCriteria.lowercaseMet(text)
+        let digitcaseMet = PasswordCriteria.digitcaseMet(text)
         
         if shouldResetCriteria {
             lengthAndNoSpaceMet ? lengthCriteriaView.isCriteriaMet = true : lengthCriteriaView.reset()
+            uppercaseMet ? uppercaseCriteriaView.isCriteriaMet = true : uppercaseCriteriaView.reset()
+            lowercaseMet ? lowerCaseCriteriaView.isCriteriaMet = true : lowerCaseCriteriaView.reset()
+            digitcaseMet ? digitCriteriaView.isCriteriaMet = true : digitCriteriaView.reset()
         }
     }
     
