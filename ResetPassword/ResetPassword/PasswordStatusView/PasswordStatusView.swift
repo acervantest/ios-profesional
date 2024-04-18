@@ -91,3 +91,14 @@ extension PasswordStatusView {
         return attrText
     }
 }
+
+// MARK: - actions
+extension PasswordStatusView {
+    func reset() {
+        lengthCriteriaView.reset()
+        uppercaseCriteriaView.reset()
+        lowerCaseCriteriaView.reset()
+        digitCriteriaView.reset()
+        specialCharacterCriteriaView.reset()
+    }
+}

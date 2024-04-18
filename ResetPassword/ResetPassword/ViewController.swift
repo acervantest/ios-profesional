@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     let confirmPasswordTextField = PasswordTextField(placeholderText: "Re-enter new password")
     let resetButton = UIButton(type: .system)
     
+    typealias CustomValidation = PasswordTextField.CustomValidation
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -27,7 +29,22 @@ class ViewController: UIViewController {
 extension ViewController {
     
     func setup() {
+        setupNewPassword()
         setupDismissKeyboardGesture()
+    }
+    
+    private func setupNewPassword() {
+        
+        let newPasswordValidation: CustomValidation = { text in
+            // Empty text validation
+            guard let text = text, !text.isEmpty else {
+                self.passwordStatus.reset()
+                return (false, "Enter your password")
+            }
+            return(true, "")
+        }
+        
+        newPasswordTextField.customValidation = newPasswordValidation
     }
     
     private func setupDismissKeyboardGesture() {
@@ -84,6 +101,8 @@ extension ViewController {
 // MARK: - text field delegate
 extension ViewController: PasswordTextFieldDelegate {
     func editingDidEnd(_ sender: PasswordTextField) {
-        print("From controller [ \(sender.textField.text!) ]")
+        if sender === newPasswordTextField {
+            _ = newPasswordTextField.validate()
+        }
     }
 }
