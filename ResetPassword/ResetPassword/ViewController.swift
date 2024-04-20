@@ -36,13 +36,31 @@ extension ViewController {
     private func setupNewPassword() {
         
         let newPasswordValidation: CustomValidation = { text in
+            
             // Empty text validation
             guard let text = text, !text.isEmpty else {
                 self.passwordStatus.reset()
                 return (false, "Enter your password")
             }
+            
+            // Valid characters
+            let validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,@:?!()$\\/#"
+            let invalidSet = CharacterSet(charactersIn: validChars).inverted
+            
+            guard text.rangeOfCharacter(from: invalidSet) == nil else {
+                self.passwordStatus.reset()
+                return (false, "Enter valid special chars (.,@:?!()$\\/#) with no spaces")
+            }
+            
+            // Criteria met
+            self.passwordStatus.updateDisplay(text)
+            
+            if !self.passwordStatus.validate(text) {
+                return (false, "Your password must meet the requirements below")
+            }
+            
             return(true, "")
-        }
+        } 
         
         newPasswordTextField.customValidation = newPasswordValidation
     }

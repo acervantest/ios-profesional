@@ -114,6 +114,25 @@ extension PasswordStatusView {
         }
     }
     
+    func validate(_ text: String) -> Bool {
+        
+        let uppercaseMet = PasswordCriteria.uppercaseMet(text)
+        let lowercaseMet = PasswordCriteria.lowercaseMet(text)
+        let digitcaseMet = PasswordCriteria.digitcaseMet(text)
+        let specialcharsMet = PasswordCriteria.specialcharMet(text)
+        
+        let checkable = [uppercaseMet, lowercaseMet, digitcaseMet, specialcharsMet]
+        let metCriteria = checkable.filter { $0 }
+        let lengthAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceMet(text)
+        
+        
+        if lengthAndNoSpaceMet && metCriteria.count >= 3 {
+            return true
+        }
+        
+        return false
+    }
+    
     func reset() {
         lengthCriteriaView.reset()
         uppercaseCriteriaView.reset()
