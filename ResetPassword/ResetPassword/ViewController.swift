@@ -32,6 +32,7 @@ extension ViewController {
         setupNewPassword()
         setupConfirmPassword()
         setupDismissKeyboardGesture()
+        setupKeyboardHiding()
     }
     
     private func setupNewPassword() {
@@ -91,6 +92,11 @@ extension ViewController {
         view.addGestureRecognizer(dismissKeyboardTap)
     }
     
+    private func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     func style() {
         
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -125,6 +131,17 @@ extension ViewController {
             stack.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: stack.trailingAnchor, multiplier: 2)
         ])
+    }
+}
+
+// MARK: - Keyboard
+extension ViewController {
+    @objc func keyboardWillShow(sender: NSNotification) {
+        view.frame.origin.y = view.frame.origin.y - 200
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
     }
 }
 
