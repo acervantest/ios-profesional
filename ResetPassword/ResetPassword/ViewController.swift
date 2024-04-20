@@ -127,6 +127,8 @@ extension ViewController: PasswordTextFieldDelegate {
     
     func editingDidEnd(_ sender: PasswordTextField) {
         if sender === newPasswordTextField {
+            // as soon as we lose focus, make ❌ appear
+            passwordStatus.shouldResetCriteria = false
             _ = newPasswordTextField.validate()
         }
     }

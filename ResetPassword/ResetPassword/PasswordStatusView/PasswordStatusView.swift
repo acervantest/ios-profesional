@@ -17,7 +17,7 @@ class PasswordStatusView: UIView {
     let specialCharacterCriteriaView = PasswordCriteriaView(text: "special character (e.g. !@#$%^)")
     
     // Used to determine if we reset criteria back to empty state
-    private var shouldResetCriteria: Bool = true
+    var shouldResetCriteria: Bool = true
     
     let criteriaLabel = UILabel()
     
@@ -106,11 +106,19 @@ extension PasswordStatusView {
         let specialcharMet = PasswordCriteria.specialcharMet(text)
         
         if shouldResetCriteria {
+            // Inline validation (✅ or ⚪️)
             lengthAndNoSpaceMet ? lengthCriteriaView.isCriteriaMet = true : lengthCriteriaView.reset()
             uppercaseMet ? uppercaseCriteriaView.isCriteriaMet = true : uppercaseCriteriaView.reset()
             lowercaseMet ? lowerCaseCriteriaView.isCriteriaMet = true : lowerCaseCriteriaView.reset()
             digitcaseMet ? digitCriteriaView.isCriteriaMet = true : digitCriteriaView.reset()
             specialcharMet ? specialCharacterCriteriaView.isCriteriaMet = true : specialCharacterCriteriaView.reset()
+        } else {
+            // Focus lost (✅ or ❌)
+            lengthCriteriaView.isCriteriaMet = lengthAndNoSpaceMet
+            uppercaseCriteriaView.isCriteriaMet = uppercaseMet
+            lowerCaseCriteriaView.isCriteriaMet = lowercaseMet
+            digitCriteriaView.isCriteriaMet = digitcaseMet
+            specialCharacterCriteriaView.isCriteriaMet = specialcharMet
         }
     }
     
