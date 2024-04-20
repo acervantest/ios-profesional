@@ -114,7 +114,7 @@ extension ViewController {
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         resetButton.configuration = .filled()
         resetButton.setTitle("Reset password", for: [])
-        // resetButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .primaryActionTriggered)
+        resetButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .primaryActionTriggered)
     }
     
     func layout() {
@@ -168,6 +168,26 @@ extension ViewController {
 extension ViewController {
     @objc func viewTapped(_ recognizer: UITapGestureRecognizer) {
         view.endEditing(true) // resign first responder
+    }
+    
+    @objc func resetPasswordButtonTapped(sender: UIButton) {
+        view.endEditing(true)
+        
+        let isValidNewPassword = newPasswordTextField.validate()
+        let isValidConfirmPassword = confirmPasswordTextField.validate()
+        
+        if isValidNewPassword && isValidConfirmPassword {
+            showAlert(title: "Success", message: "You have successfully changed your password.")
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert =  UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        alert.title = title
+        alert.message = message
+        present(alert, animated: true, completion: nil)
     }
 }
 
