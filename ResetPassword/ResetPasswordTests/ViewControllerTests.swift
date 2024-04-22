@@ -93,3 +93,32 @@ class ViewControllerTests_Confirm_Password_Validation: XCTestCase {
         XCTAssertEqual(vc.confirmPasswordTextField.errorMessageLabel.text!, "")
     }
 }
+
+class ViewControllerTests_Show_Alert: XCTestCase {
+
+    var vc: ViewController!
+    let validPassword = "12345678Aa!"
+    let tooShort = "1234Aa!"
+    
+    override func setUp() {
+        super.setUp()
+        vc = ViewController()
+    }
+    
+    func testShowSuccess() throws {
+        vc.newPasswordText = validPassword
+        vc.confirmPasswordText = validPassword
+        vc.resetPasswordButtonTapped(sender: UIButton())
+
+        XCTAssertNotNil(vc.alert)
+        XCTAssertEqual(vc.alert!.title, "Success") // Optional
+    }
+
+    func testShowError() throws {
+        vc.newPasswordText = validPassword
+        vc.confirmPasswordText = tooShort
+        vc.resetPasswordButtonTapped(sender: UIButton())
+
+        XCTAssertNil(vc.alert)
+    }
+}
