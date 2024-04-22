@@ -38,4 +38,44 @@ class PasswordOtherCriteriaTests: XCTestCase {
     func testSpaceNotMet() throws {
         XCTAssertFalse(PasswordCriteria.noSpaceCriteriaMet("a bc"))
     }
+
+    func testLengthAndNoSpaceMet() throws {
+        XCTAssertTrue(PasswordCriteria.lengthAndNoSpaceMet("12345678"))
+    }
+
+    func testLengthAndNoSpaceNotMet() throws {
+        XCTAssertFalse(PasswordCriteria.lengthAndNoSpaceMet("1234567 8"))
+    }
+    
+    func testUpperCaseMet() throws {
+        XCTAssertTrue(PasswordCriteria.uppercaseMet("A"))
+    }
+
+    func testUpperCaseNotMet() throws {
+        XCTAssertFalse(PasswordCriteria.uppercaseMet("a"))
+    }
+
+    func testLowerCaseMet() throws {
+        XCTAssertTrue(PasswordCriteria.lowercaseMet("a"))
+    }
+
+    func testLowerCaseNotMet() throws {
+        XCTAssertFalse(PasswordCriteria.lowercaseMet("A"))
+    }
+
+    func testDigitMet() throws {
+        XCTAssertTrue(PasswordCriteria.digitcaseMet("1"))
+    }
+
+    func testDigitNotMet() throws {
+        XCTAssertFalse(PasswordCriteria.digitcaseMet("a"))
+    }
+    
+    func testSpecicalCharMet() throws {
+        XCTAssertTrue(PasswordCriteria.specialcharMet("@"))
+    }
+
+    func testSpecicalCharNotMet() throws {
+        XCTAssertFalse(PasswordCriteria.specialcharMet("a"))
+    }
 }

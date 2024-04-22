@@ -92,3 +92,18 @@ extension PasswordCriteriaView {
         label.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
     }
 }
+
+//MARK: - Tests
+extension PasswordCriteriaView {
+    var isCheckMarkImage: Bool {
+        return image.image == checkmarkImage
+    }
+    
+    var isXMarkImage: Bool {
+        return image.image == xmarkImage
+    }
+    
+    var isResetImage: Bool {
+        return image.image == circleImage
+    }
+}
