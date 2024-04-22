@@ -17,7 +17,18 @@
 		BD5F0A242BCCF4F300B1F573 /* PasswordStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F0A232BCCF4F300B1F573 /* PasswordStatusView.swift */; };
 		BD5F0A262BD0F0A400B1F573 /* PasswordCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F0A252BD0F0A400B1F573 /* PasswordCriteria.swift */; };
 		BDC24C182BD460270017B9C6 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC24C172BD460270017B9C6 /* UIResponder+Utils.swift */; };
+		BDC24C272BD473B40017B9C6 /* PasswordCriteriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC24C262BD473B40017B9C6 /* PasswordCriteriaTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDC24C212BD46FB40017B9C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD5F09FE2BC8D8CE00B1F573 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD5F0A052BC8D8CE00B1F573;
+			remoteInfo = ResetPassword;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BD5F0A062BC8D8CE00B1F573 /* ResetPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResetPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,10 +43,19 @@
 		BD5F0A232BCCF4F300B1F573 /* PasswordStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusView.swift; sourceTree = "<group>"; };
 		BD5F0A252BD0F0A400B1F573 /* PasswordCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteria.swift; sourceTree = "<group>"; };
 		BDC24C172BD460270017B9C6 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
+		BDC24C1D2BD46FB40017B9C6 /* ResetPasswordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResetPasswordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDC24C262BD473B40017B9C6 /* PasswordCriteriaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteriaTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BD5F0A032BC8D8CE00B1F573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC24C1A2BD46FB40017B9C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				BD5F0A082BC8D8CE00B1F573 /* ResetPassword */,
+				BDC24C1E2BD46FB40017B9C6 /* ResetPasswordTests */,
 				BD5F0A072BC8D8CE00B1F573 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				BD5F0A062BC8D8CE00B1F573 /* ResetPassword.app */,
+				BDC24C1D2BD46FB40017B9C6 /* ResetPasswordTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +125,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		BDC24C1E2BD46FB40017B9C6 /* ResetPasswordTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDC24C262BD473B40017B9C6 /* PasswordCriteriaTests.swift */,
+			);
+			path = ResetPasswordTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +153,24 @@
 			productReference = BD5F0A062BC8D8CE00B1F573 /* ResetPassword.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BDC24C1C2BD46FB40017B9C6 /* ResetPasswordTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDC24C232BD46FB40017B9C6 /* Build configuration list for PBXNativeTarget "ResetPasswordTests" */;
+			buildPhases = (
+				BDC24C192BD46FB40017B9C6 /* Sources */,
+				BDC24C1A2BD46FB40017B9C6 /* Frameworks */,
+				BDC24C1B2BD46FB40017B9C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDC24C222BD46FB40017B9C6 /* PBXTargetDependency */,
+			);
+			name = ResetPasswordTests;
+			productName = ResetPasswordTests;
+			productReference = BDC24C1D2BD46FB40017B9C6 /* ResetPasswordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -135,6 +183,10 @@
 				TargetAttributes = {
 					BD5F0A052BC8D8CE00B1F573 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					BDC24C1C2BD46FB40017B9C6 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = BD5F0A052BC8D8CE00B1F573;
 					};
 				};
 			};
@@ -152,6 +204,7 @@
 			projectRoot = "";
 			targets = (
 				BD5F0A052BC8D8CE00B1F573 /* ResetPassword */,
+				BDC24C1C2BD46FB40017B9C6 /* ResetPasswordTests */,
 			);
 		};
 /* End PBXProject section */
@@ -163,6 +216,13 @@
 			files = (
 				BD5F0A132BC8D8CF00B1F573 /* Assets.xcassets in Resources */,
 				BD5F0A162BC8D8CF00B1F573 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC24C1B2BD46FB40017B9C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +244,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDC24C192BD46FB40017B9C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDC24C272BD473B40017B9C6 /* PasswordCriteriaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDC24C222BD46FB40017B9C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD5F0A052BC8D8CE00B1F573 /* ResetPassword */;
+			targetProxy = BDC24C212BD46FB40017B9C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BD5F0A142BC8D8CF00B1F573 /* LaunchScreen.storyboard */ = {
@@ -371,6 +447,42 @@
 			};
 			name = Release;
 		};
+		BDC24C242BD46FB40017B9C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V484G7LV29;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.act.ResetPasswordTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResetPassword.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ResetPassword";
+			};
+			name = Debug;
+		};
+		BDC24C252BD46FB40017B9C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V484G7LV29;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.act.ResetPasswordTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResetPassword.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ResetPassword";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -388,6 +500,15 @@
 			buildConfigurations = (
 				BD5F0A1B2BC8D8CF00B1F573 /* Debug */,
 				BD5F0A1C2BC8D8CF00B1F573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDC24C232BD46FB40017B9C6 /* Build configuration list for PBXNativeTarget "ResetPasswordTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDC24C242BD46FB40017B9C6 /* Debug */,
+				BDC24C252BD46FB40017B9C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

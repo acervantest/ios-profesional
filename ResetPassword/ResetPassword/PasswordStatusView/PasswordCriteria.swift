@@ -8,7 +8,7 @@
 import Foundation
 
 struct PasswordCriteria {
-    static func lenghtCriteriaMet(_ text: String) -> Bool {
+    static func lengthCriteriaMet(_ text: String) -> Bool {
         text.count >= 8 && text.count <= 32
     }
 
@@ -17,7 +17,7 @@ struct PasswordCriteria {
     }
     
     static func lengthAndNoSpaceMet(_ text: String) -> Bool {
-        lenghtCriteriaMet(text) && noSpaceCriteriaMet(text)
+        lengthCriteriaMet(text) && noSpaceCriteriaMet(text)
     }
     
     static func uppercaseMet(_ text: String) -> Bool {
